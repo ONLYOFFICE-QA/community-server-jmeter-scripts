@@ -1,0 +1,4 @@
+Folder contains scripts for jmeter 3.3+
+
+for XMPP simple test you need to install bzm xmpp sampler with plugins
+https://www.blazemeter.com/blog/xmpp-load-testing-the-ultimate-guide

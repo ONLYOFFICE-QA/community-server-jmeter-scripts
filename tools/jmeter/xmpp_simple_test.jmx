@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="XMPP simple jabber testing" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>false</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>true</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Config vars" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="portal" elementType="Argument">
+            <stringProp name="Argument.name">portal</stringProp>
+            <stringProp name="Argument.value">nctautotest-251038718-micro-talk-functional-spec.teamlab.info</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="user1" elementType="Argument">
+            <stringProp name="Argument.name">user1</stringProp>
+            <stringProp name="Argument.value">teamlab.ruby</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="user2" elementType="Argument">
+            <stringProp name="Argument.name">user2</stringProp>
+            <stringProp name="Argument.value">t.eamlab.ruby</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="password" elementType="Argument">
+            <stringProp name="Argument.name">password</stringProp>
+            <stringProp name="Argument.value">123456</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="message_num" elementType="Argument">
+            <stringProp name="Argument.name">message_num</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <com.blazemeter.jmeter.xmpp.JMeterXMPPConnection guiclass="com.blazemeter.jmeter.xmpp.JMeterXMPPConnectionGui" testclass="com.blazemeter.jmeter.xmpp.JMeterXMPPConnection" testname="bzm - XMPP Connection" enabled="true">
+        <stringProp name="TestPlan.comments">This plugin was developed by www.blazemeter.com</stringProp>
+        <stringProp name="address">${portal}</stringProp>
+        <stringProp name="port">5222</stringProp>
+        <stringProp name="service_name">${portal}</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="class">TCP</stringProp>
+        <stringProp name="from_mode">USER</stringProp>
+      </com.blazemeter.jmeter.xmpp.JMeterXMPPConnection>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="user1 chatting" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1370726934000</longProp>
+        <longProp name="ThreadGroup.end_time">1370726934000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="xmpp_connect" enabled="true"/>
+        <hashTree>
+          <com.blazemeter.jmeter.xmpp.JMeterXMPPSampler guiclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSamplerGui" testclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSampler" testname="xmpp connect" enabled="true">
+            <stringProp name="TestPlan.comments">This plugin is developed by www.blazemeter.com</stringProp>
+            <stringProp name="action">com.blazemeter.jmeter.xmpp.actions.Connect</stringProp>
+            <stringProp name="login"></stringProp>
+            <stringProp name="password"></stringProp>
+            <stringProp name="resource">JMeter</stringProp>
+            <stringProp name="roster_action">get_roster</stringProp>
+            <stringProp name="roster_entry"></stringProp>
+            <stringProp name="recipient"></stringProp>
+            <stringProp name="text"></stringProp>
+            <stringProp name="type">available</stringProp>
+            <stringProp name="mode">available</stringProp>
+            <stringProp name="msg_w_resp_addressee"></stringProp>
+            <stringProp name="msg_w_resp_body"></stringProp>
+            <boolProp name="wait_response">false</boolProp>
+            <stringProp name="msg_type">normal</stringProp>
+            <stringProp name="xml"></stringProp>
+            <stringProp name="muc_room"></stringProp>
+            <stringProp name="muc_nickname"></stringProp>
+            <stringProp name="file_recipient"></stringProp>
+            <stringProp name="file_path"></stringProp>
+            <stringProp name="entity_id"></stringProp>
+            <stringProp name="discovery_type">items</stringProp>
+          </com.blazemeter.jmeter.xmpp.JMeterXMPPSampler>
+          <hashTree/>
+          <com.blazemeter.jmeter.xmpp.JMeterXMPPSampler guiclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSamplerGui" testclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSampler" testname="xmpp log in" enabled="true">
+            <stringProp name="TestPlan.comments">This plugin is developed by www.blazemeter.com</stringProp>
+            <stringProp name="action">com.blazemeter.jmeter.xmpp.actions.Login</stringProp>
+            <stringProp name="login">${user1}</stringProp>
+            <stringProp name="password">${password}</stringProp>
+            <stringProp name="resource">JMeter</stringProp>
+            <stringProp name="roster_action">get_roster</stringProp>
+            <stringProp name="roster_entry"></stringProp>
+            <stringProp name="recipient"></stringProp>
+            <stringProp name="text"></stringProp>
+            <stringProp name="type">available</stringProp>
+            <stringProp name="mode">available</stringProp>
+            <stringProp name="msg_w_resp_addressee"></stringProp>
+            <stringProp name="msg_w_resp_body"></stringProp>
+            <boolProp name="wait_response">false</boolProp>
+            <stringProp name="msg_type">normal</stringProp>
+            <stringProp name="xml"></stringProp>
+            <stringProp name="muc_room"></stringProp>
+            <stringProp name="muc_nickname"></stringProp>
+            <stringProp name="file_recipient"></stringProp>
+            <stringProp name="file_path"></stringProp>
+            <stringProp name="entity_id"></stringProp>
+            <stringProp name="discovery_type">items</stringProp>
+          </com.blazemeter.jmeter.xmpp.JMeterXMPPSampler>
+          <hashTree/>
+          <com.blazemeter.jmeter.xmpp.JMeterXMPPSampler guiclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSamplerGui" testclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSampler" testname="xmpp send presence" enabled="true">
+            <stringProp name="TestPlan.comments">This plugin is developed by www.blazemeter.com</stringProp>
+            <stringProp name="action">com.blazemeter.jmeter.xmpp.actions.SendPresence</stringProp>
+            <stringProp name="login">nct.tester</stringProp>
+            <stringProp name="password">123456</stringProp>
+            <stringProp name="resource">JMeter</stringProp>
+            <stringProp name="roster_action">get_roster</stringProp>
+            <stringProp name="roster_entry"></stringProp>
+            <stringProp name="recipient"></stringProp>
+            <stringProp name="text"></stringProp>
+            <stringProp name="type">available</stringProp>
+            <stringProp name="mode">available</stringProp>
+            <stringProp name="msg_w_resp_addressee"></stringProp>
+            <stringProp name="msg_w_resp_body"></stringProp>
+            <boolProp name="wait_response">false</boolProp>
+            <stringProp name="msg_type">normal</stringProp>
+            <stringProp name="xml"></stringProp>
+            <stringProp name="muc_room"></stringProp>
+            <stringProp name="muc_nickname"></stringProp>
+            <stringProp name="file_recipient"></stringProp>
+            <stringProp name="file_path"></stringProp>
+            <stringProp name="entity_id"></stringProp>
+            <stringProp name="discovery_type">items</stringProp>
+          </com.blazemeter.jmeter.xmpp.JMeterXMPPSampler>
+          <hashTree/>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="message spam loop" enabled="true">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">${message_num}</stringProp>
+        </LoopController>
+        <hashTree>
+          <com.blazemeter.jmeter.xmpp.JMeterXMPPSampler guiclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSamplerGui" testclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSampler" testname="xmpp send message" enabled="true">
+            <stringProp name="TestPlan.comments">This plugin is developed by www.blazemeter.com</stringProp>
+            <stringProp name="action">com.blazemeter.jmeter.xmpp.actions.SendMessage</stringProp>
+            <stringProp name="login">nct.tester</stringProp>
+            <stringProp name="password">123456</stringProp>
+            <stringProp name="resource">JMeter</stringProp>
+            <stringProp name="roster_action">get_roster</stringProp>
+            <stringProp name="roster_entry"></stringProp>
+            <stringProp name="recipient"></stringProp>
+            <stringProp name="text"></stringProp>
+            <stringProp name="type">available</stringProp>
+            <stringProp name="mode">available</stringProp>
+            <stringProp name="msg_w_resp_addressee">${user2}@${portal}</stringProp>
+            <stringProp name="msg_w_resp_body">message ${__Random(1,1000000)} from ${user1}</stringProp>
+            <boolProp name="wait_response">false</boolProp>
+            <stringProp name="msg_type">normal</stringProp>
+            <stringProp name="xml"></stringProp>
+            <stringProp name="muc_room"></stringProp>
+            <stringProp name="muc_nickname"></stringProp>
+            <stringProp name="file_recipient"></stringProp>
+            <stringProp name="file_path"></stringProp>
+            <stringProp name="entity_id"></stringProp>
+            <stringProp name="discovery_type">items</stringProp>
+          </com.blazemeter.jmeter.xmpp.JMeterXMPPSampler>
+          <hashTree/>
+        </hashTree>
+        <com.blazemeter.jmeter.xmpp.JMeterXMPPSampler guiclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSamplerGui" testclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSampler" testname="xmpp disconnect" enabled="true">
+          <stringProp name="TestPlan.comments">This plugin is developed by www.blazemeter.com</stringProp>
+          <stringProp name="action">com.blazemeter.jmeter.xmpp.actions.Disconnect</stringProp>
+          <stringProp name="login">nct.tester</stringProp>
+          <stringProp name="password">123456</stringProp>
+          <stringProp name="resource">JMeter</stringProp>
+          <stringProp name="roster_action">get_roster</stringProp>
+          <stringProp name="roster_entry"></stringProp>
+          <stringProp name="recipient"></stringProp>
+          <stringProp name="text"></stringProp>
+          <stringProp name="type">available</stringProp>
+          <stringProp name="mode">available</stringProp>
+          <stringProp name="msg_w_resp_addressee">teamlab.ruby@nctscriptcreatedathena255867487.teamlab.info</stringProp>
+          <stringProp name="msg_w_resp_body">Hello, world!</stringProp>
+          <boolProp name="wait_response">false</boolProp>
+          <stringProp name="msg_type">normal</stringProp>
+          <stringProp name="xml"></stringProp>
+          <stringProp name="muc_room"></stringProp>
+          <stringProp name="muc_nickname"></stringProp>
+          <stringProp name="file_recipient"></stringProp>
+          <stringProp name="file_path"></stringProp>
+          <stringProp name="entity_id"></stringProp>
+          <stringProp name="discovery_type">items</stringProp>
+        </com.blazemeter.jmeter.xmpp.JMeterXMPPSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="user2 chatting" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1370726934000</longProp>
+        <longProp name="ThreadGroup.end_time">1370726934000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="xmpp_connect" enabled="true"/>
+        <hashTree>
+          <com.blazemeter.jmeter.xmpp.JMeterXMPPSampler guiclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSamplerGui" testclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSampler" testname="xmpp connect" enabled="true">
+            <stringProp name="TestPlan.comments">This plugin is developed by www.blazemeter.com</stringProp>
+            <stringProp name="action">com.blazemeter.jmeter.xmpp.actions.Connect</stringProp>
+            <stringProp name="login"></stringProp>
+            <stringProp name="password"></stringProp>
+            <stringProp name="resource">JMeter</stringProp>
+            <stringProp name="roster_action">get_roster</stringProp>
+            <stringProp name="roster_entry"></stringProp>
+            <stringProp name="recipient"></stringProp>
+            <stringProp name="text"></stringProp>
+            <stringProp name="type">available</stringProp>
+            <stringProp name="mode">available</stringProp>
+            <stringProp name="msg_w_resp_addressee"></stringProp>
+            <stringProp name="msg_w_resp_body"></stringProp>
+            <boolProp name="wait_response">false</boolProp>
+            <stringProp name="msg_type">normal</stringProp>
+            <stringProp name="xml"></stringProp>
+            <stringProp name="muc_room"></stringProp>
+            <stringProp name="muc_nickname"></stringProp>
+            <stringProp name="file_recipient"></stringProp>
+            <stringProp name="file_path"></stringProp>
+            <stringProp name="entity_id"></stringProp>
+            <stringProp name="discovery_type">items</stringProp>
+          </com.blazemeter.jmeter.xmpp.JMeterXMPPSampler>
+          <hashTree/>
+          <com.blazemeter.jmeter.xmpp.JMeterXMPPSampler guiclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSamplerGui" testclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSampler" testname="xmpp log in" enabled="true">
+            <stringProp name="TestPlan.comments">This plugin is developed by www.blazemeter.com</stringProp>
+            <stringProp name="action">com.blazemeter.jmeter.xmpp.actions.Login</stringProp>
+            <stringProp name="login">${user2}</stringProp>
+            <stringProp name="password">${password}</stringProp>
+            <stringProp name="resource">JMeter</stringProp>
+            <stringProp name="roster_action">get_roster</stringProp>
+            <stringProp name="roster_entry"></stringProp>
+            <stringProp name="recipient"></stringProp>
+            <stringProp name="text"></stringProp>
+            <stringProp name="type">available</stringProp>
+            <stringProp name="mode">available</stringProp>
+            <stringProp name="msg_w_resp_addressee"></stringProp>
+            <stringProp name="msg_w_resp_body"></stringProp>
+            <boolProp name="wait_response">false</boolProp>
+            <stringProp name="msg_type">normal</stringProp>
+            <stringProp name="xml"></stringProp>
+            <stringProp name="muc_room"></stringProp>
+            <stringProp name="muc_nickname"></stringProp>
+            <stringProp name="file_recipient"></stringProp>
+            <stringProp name="file_path"></stringProp>
+            <stringProp name="entity_id"></stringProp>
+            <stringProp name="discovery_type">items</stringProp>
+          </com.blazemeter.jmeter.xmpp.JMeterXMPPSampler>
+          <hashTree/>
+          <com.blazemeter.jmeter.xmpp.JMeterXMPPSampler guiclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSamplerGui" testclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSampler" testname="xmpp send presence" enabled="true">
+            <stringProp name="TestPlan.comments">This plugin is developed by www.blazemeter.com</stringProp>
+            <stringProp name="action">com.blazemeter.jmeter.xmpp.actions.SendPresence</stringProp>
+            <stringProp name="login">nct.tester</stringProp>
+            <stringProp name="password">123456</stringProp>
+            <stringProp name="resource">JMeter</stringProp>
+            <stringProp name="roster_action">get_roster</stringProp>
+            <stringProp name="roster_entry"></stringProp>
+            <stringProp name="recipient"></stringProp>
+            <stringProp name="text"></stringProp>
+            <stringProp name="type">available</stringProp>
+            <stringProp name="mode">available</stringProp>
+            <stringProp name="msg_w_resp_addressee"></stringProp>
+            <stringProp name="msg_w_resp_body"></stringProp>
+            <boolProp name="wait_response">false</boolProp>
+            <stringProp name="msg_type">normal</stringProp>
+            <stringProp name="xml"></stringProp>
+            <stringProp name="muc_room"></stringProp>
+            <stringProp name="muc_nickname"></stringProp>
+            <stringProp name="file_recipient"></stringProp>
+            <stringProp name="file_path"></stringProp>
+            <stringProp name="entity_id"></stringProp>
+            <stringProp name="discovery_type">items</stringProp>
+          </com.blazemeter.jmeter.xmpp.JMeterXMPPSampler>
+          <hashTree/>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="message spam loop" enabled="true">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">${message_num}</stringProp>
+        </LoopController>
+        <hashTree>
+          <com.blazemeter.jmeter.xmpp.JMeterXMPPSampler guiclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSamplerGui" testclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSampler" testname="xmpp send message" enabled="true">
+            <stringProp name="TestPlan.comments">This plugin is developed by www.blazemeter.com</stringProp>
+            <stringProp name="action">com.blazemeter.jmeter.xmpp.actions.SendMessage</stringProp>
+            <stringProp name="login">nct.tester</stringProp>
+            <stringProp name="password">123456</stringProp>
+            <stringProp name="resource">JMeter</stringProp>
+            <stringProp name="roster_action">get_roster</stringProp>
+            <stringProp name="roster_entry"></stringProp>
+            <stringProp name="recipient"></stringProp>
+            <stringProp name="text"></stringProp>
+            <stringProp name="type">available</stringProp>
+            <stringProp name="mode">available</stringProp>
+            <stringProp name="msg_w_resp_addressee">${user1}@${portal}</stringProp>
+            <stringProp name="msg_w_resp_body">message ${__Random(1,1000000)} from ${user2}</stringProp>
+            <boolProp name="wait_response">false</boolProp>
+            <stringProp name="msg_type">normal</stringProp>
+            <stringProp name="xml"></stringProp>
+            <stringProp name="muc_room"></stringProp>
+            <stringProp name="muc_nickname"></stringProp>
+            <stringProp name="file_recipient"></stringProp>
+            <stringProp name="file_path"></stringProp>
+            <stringProp name="entity_id"></stringProp>
+            <stringProp name="discovery_type">items</stringProp>
+          </com.blazemeter.jmeter.xmpp.JMeterXMPPSampler>
+          <hashTree/>
+        </hashTree>
+        <com.blazemeter.jmeter.xmpp.JMeterXMPPSampler guiclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSamplerGui" testclass="com.blazemeter.jmeter.xmpp.JMeterXMPPSampler" testname="xmpp disconnect" enabled="true">
+          <stringProp name="TestPlan.comments">This plugin is developed by www.blazemeter.com</stringProp>
+          <stringProp name="action">com.blazemeter.jmeter.xmpp.actions.Disconnect</stringProp>
+          <stringProp name="login">nct.tester</stringProp>
+          <stringProp name="password">123456</stringProp>
+          <stringProp name="resource">JMeter</stringProp>
+          <stringProp name="roster_action">get_roster</stringProp>
+          <stringProp name="roster_entry"></stringProp>
+          <stringProp name="recipient"></stringProp>
+          <stringProp name="text"></stringProp>
+          <stringProp name="type">available</stringProp>
+          <stringProp name="mode">available</stringProp>
+          <stringProp name="msg_w_resp_addressee">teamlab.ruby@nctscriptcreatedathena255867487.teamlab.info</stringProp>
+          <stringProp name="msg_w_resp_body">Hello, world!</stringProp>
+          <boolProp name="wait_response">false</boolProp>
+          <stringProp name="msg_type">normal</stringProp>
+          <stringProp name="xml"></stringProp>
+          <stringProp name="muc_room"></stringProp>
+          <stringProp name="muc_nickname"></stringProp>
+          <stringProp name="file_recipient"></stringProp>
+          <stringProp name="file_path"></stringProp>
+          <stringProp name="entity_id"></stringProp>
+          <stringProp name="discovery_type">items</stringProp>
+        </com.blazemeter.jmeter.xmpp.JMeterXMPPSampler>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>
