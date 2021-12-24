@@ -2,7 +2,7 @@
 # ugly script - generating LDAP users for load testing
 # TODO: refactor to make reusable
 
-text = File.open('text.txt').read
+text = File.read('text.txt')
 text.gsub!(/\r\n?/, "\n")
 
 big_bad_str = ''
